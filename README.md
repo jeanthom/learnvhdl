@@ -13,3 +13,11 @@ sudo dnf install ghdl / sudo apt-get install ghdl / sudo whatever install ghdl /
 gem install sinatra
 ruby learnvhdl.rb
 ```
+
+## Screenshots
+
+![Homepage](doc/homepage.png)
+
+![The first exercise](doc/exercise.png)
+
+![Exercise results](doc/results.png)
