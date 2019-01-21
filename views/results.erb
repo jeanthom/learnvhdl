@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<title>Learn VHDL</title>
+</head>
+<body>
+	<div class="container">
+		<h1><a href="/">Learn VHDL</a></h1>
+
+		<hr>
+
+		<% if error_count == 0 %>
+			<h2>Success! No errors were reported during the tests! QC approved.</h2>
+		<% else %>
+			<h2><%= error_count %> test(s) failed</h2>
+
+			<% errors.each do |error| %>
+				<div class="alert alert-danger" role="alert">
+					<%= error[/^.*\(assertion error\): (.*)$/, 1] %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</body>
+</html>
