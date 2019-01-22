@@ -3,6 +3,7 @@ require 'open3'
 
 configure do
   set :views, "#{File.dirname(__FILE__)}/views"
+  set :public_folder, 'assets'
 end
 
 get '/' do
