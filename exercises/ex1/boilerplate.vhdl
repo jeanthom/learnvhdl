@@ -12,6 +12,6 @@ end entity;
 
 architecture Behavioral of Exercise1 is
 begin
-	-- We have completed the first one for you here :
+	-- We have completed the first one for you here:
 	pulled_high <= 'H';
 end architecture;
