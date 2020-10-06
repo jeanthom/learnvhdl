@@ -10,16 +10,22 @@
 
 		<hr>
 
-		<% if error_count == 0 %>
-			<h2>Success! No errors were reported during the tests! QC approved.</h2>
-		<% else %>
-			<h2><%= error_count %> test(s) failed</h2>
+		<% if !compile_error.empty? %>
+			<h2>Some compilation errors occured</h2>
+
+			<div class="alert alert-danger" role="alert">
+				<pre><%= compile_error %></pre>
+			</div>
+		<% elsif errors.size > 0 %>
+			<h2><%= errors.size %> test(s) failed</h2>
 
 			<% errors.each do |error| %>
 				<div class="alert alert-danger" role="alert">
 					<%= error[/^.*\(assertion error\): (.*)$/, 1] %>
 				</div>
 			<% end %>
+		<% else %>
+			<h2>Success! No errors were reported during the tests! QC approved.</h2>
 		<% end %>
 	</div>
 </body>

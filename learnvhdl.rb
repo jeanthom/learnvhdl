@@ -19,6 +19,7 @@ end
 
 post '/exercise/:exercise' do
 	sim_results = ""
+	compile_error = ""
 
 	Dir.mktmpdir { |dir|
 		FileUtils.cp_r "#{File.dirname(__FILE__)}/exercises/ex#{params[:exercise]}/.", dir
@@ -26,7 +27,7 @@ post '/exercise/:exercise' do
 		sourceFile.write(params[:code])
 		sourceFile.close
 
-		sim_results, stderr, status = Open3.capture3("cd #{dir}; make test")
+		sim_results, compile_error, status = Open3.capture3("cd #{dir}; make test")
 	}
 
 	errors = sim_results.split("\n")
@@ -34,7 +35,6 @@ post '/exercise/:exercise' do
 	errors.collect { |x|
 		x.match(/^.*\(assertion error\): (.*)$/).captures || x
 	}
-	error_count = errors.size
 
-	erb :results, :locals => { :error_count => error_count, :errors => errors }
+	erb :results, :locals => { :compile_error => compile_error, :errors => errors }
 end
