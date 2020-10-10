@@ -1,5 +1,29 @@
 <h2>Logic types</h2>
 
+<p>In a similar fashion to variable types in programming languages, VHDL has signal types. The most common signal type in VHDL is called <code>std_logic</code>. This signal type can represent most of the signal states you will encounter in a circuit.</p>
+
+<h3>Learning about <code>std_logic</code> possible values</h3>
+
+<h4>Strong low/high states</h4>
+
+<p>Strong high and low are the most primitive states for std_logic. They are spelled "0" and "1" in VHDL. You cannot assign to a same signal multiple strong states, as it would be similar to shorting a power supply to ground.</p>
+
+<h4>Weak low/high states</h4>
+
+<p>Unlike strong logic states, weak logic states can be assigned to the same signal as a strong state: the stronger signal will win. This can be used to set a default value to a signal.</p>
+
+<p>In digital circuits they are often called "pull-up" (weak high) or "pull-down" (weak low).</p>
+
+<h4>High impedance</h4>
+
+<p>High impedance means that the signal has no value. It is often used for data busses with multiple peripherals to not drive the bus.</p>
+
+<h4>Don't Care</h4>
+
+<p>This is used as a hint for the synthesis tool so that it can better optimize the circuit.</p>
+
+<h3>Assignment</h3>
+
 <p>In this exercise, we will use some of the basic types used in VHDL code. This exercise's goal is to assign:
 	<ul>
 		<li><code>pulled_high</code> to a recessive logical high</li>
