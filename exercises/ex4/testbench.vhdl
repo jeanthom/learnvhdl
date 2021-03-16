@@ -6,16 +6,17 @@ end entity;
 
 architecture Behavioral of Testbench is
 	component Exercise4 is
-	port (a: in std_logic;
-		b: in std_logic;
-		cin : in std_logic;
-		s: out std_logic;
-		cout: out std_logic);
+		port (a: in std_logic;
+			b: in std_logic;
+			cin : in std_logic;
+			s: out std_logic;
+			cout: out std_logic);
 	end component;
 
 	signal a, b, cin, s, cout: std_logic;
 begin
-	exercise: Exercise4 port map(
+	exercise: Exercise4
+	 port map(
 		a => a,
 		b => b,
 		cin => cin,

@@ -12,6 +12,8 @@ gem install sinatra
 ruby learnvhdl.rb
 ```
 
+Then open your favorite web browser to **http://localhost:4567/**
+
 ## Screenshots
 
 ![Homepage](doc/homepage.png)
